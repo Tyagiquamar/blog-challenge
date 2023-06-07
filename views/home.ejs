@@ -1,0 +1,22 @@
+<%- include( "partials/header"); -%>
+
+<div class="w">
+  <h1>Home</h1>
+
+  <p><%= homeStartingContent %></p>
+
+  <% posts.forEach(function(post){ %>
+  <h1><%= post.title %></h1>
+  <p>
+    <%= post.content.slice(0,100) + "..." %>
+    <!-- function truncate(str, length) {
+      return str.length > length ? str.substr(0, length) + "..." : str;
+    } -->
+
+    <a href="/posts/<%= post._id %>">Read More</a>
+  </p>
+  <input type="hidden" name="postId" value="<%= post._id %>" />
+  <% }) %>
+</div>
+
+<%- include( "partials/footer"); -%>
